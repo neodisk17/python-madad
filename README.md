@@ -10,6 +10,14 @@ This extension provides the following features:
 - Provides a command to automatically trigger package installation from `requirements.txt` and `constraints.txt` files.
 - Provides a download icon in the editor to automatically install the packages
 
+## Screenshots
+
+![VS Code Command](https://python-madad.s3.ap-south-1.amazonaws.com/VS-Code-Command.png)
+
+![Download Icon](https://python-madad.s3.ap-south-1.amazonaws.com/download-icon.png)
+
+![Context Menu Option](https://python-madad.s3.ap-south-1.amazonaws.com/context-menu-option.png)
+
 ## Requirements
 
 This extension requires the Python extension for Visual Studio Code to be installed and a Python interpreter to be selected.

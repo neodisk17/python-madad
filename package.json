@@ -3,6 +3,7 @@
   "displayName": "python-madad",
   "description": "",
   "version": "0.0.1",
+  "publisher": "whisperyourwish",
   "engines": {
     "vscode": "^1.85.0"
   },
