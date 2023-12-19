@@ -1,6 +1,6 @@
 {
-  "name": "python-helper",
-  "displayName": "python-helper",
+  "name": "python-madad",
+  "displayName": "python-madad",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -17,11 +17,11 @@
   "contributes": {
     "commands": [
       {
-        "command": "python-helper.downloadFile",
-        "title": "Download File",
+        "command": "python-madad.installPackage",
+        "title": "Python Madad: Install Packages",
         "icon": {
-          "dark": "./src/assets/icon/download-icon.svg",
-          "light": "./src/assets/icon/download-icon.svg"
+          "dark": "./src/assets/icon/download-light-icon.svg",
+          "light": "./src/assets/icon/download-dark-icon.svg"
         }
       }
     ],
@@ -29,13 +29,13 @@
       "editor/title": [
         {
           "when": "resourceLangId == 'pip-requirements'",
-          "command": "python-helper.downloadFile",
+          "command": "python-madad.installPackage",
           "group": "navigation"
         }
       ],
       "editor/context": [
         {
-          "command": "python-helper.downloadFile",
+          "command": "python-madad.installPackage",
           "when": "resourceLangId == 'pip-requirements'"
         }
       ]

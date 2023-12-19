@@ -1,9 +1,12 @@
 # Change Log
 
-All notable changes to the "python-helper" extension will be documented in this file.
+All notable changes to the "python-madad" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [Unreleased]
 
 - Initial release
+- Watches for changes in `requirements.txt` and `constraints.txt` files and automatically installs the listed packages.
+- Provides a command to automatically trigger package installation from `requirements.txt` and `constraints.txt` files.
+- Provided download icon in the editor to automatically trigger package installation from `requirements.txt` and `constraints.txt` files.
