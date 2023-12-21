@@ -1,12 +1,12 @@
-import * as vscode from 'vscode';
+import { extensions, window } from 'vscode';
 import { PYTHON_EXTENSION_ID } from '../constant';
 import checkForPythonError from '../error-message/checkForPythonError';
 
 const checkForPython = async (fileName: string) => {
-  const pythonExtension = vscode.extensions.getExtension(PYTHON_EXTENSION_ID);
+  const pythonExtension = extensions.getExtension(PYTHON_EXTENSION_ID);
 
   if (!pythonExtension) {
-    vscode.window.showWarningMessage(checkForPythonError.pythonNotInstalled);
+    window.showWarningMessage(checkForPythonError.pythonNotInstalled);
     return;
   }
 
@@ -18,11 +18,11 @@ const checkForPython = async (fileName: string) => {
   const pythonPath = pythonApi.settings.getExecutionDetails().execCommand;
 
   if (!pythonPath) {
-    vscode.window.showWarningMessage(checkForPythonError.noInterpreterSelected);
+    window.showWarningMessage(checkForPythonError.noInterpreterSelected);
     return;
   }
 
-  const terminal = vscode.window.activeTerminal || vscode.window.createTerminal();
+  const terminal = window.activeTerminal || window.createTerminal();
 
   const pythonCommand = `${pythonPath} -m pip install -r ${fileName};`;
 

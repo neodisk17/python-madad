@@ -1,18 +1,13 @@
-import * as vscode from 'vscode';
+import { window } from 'vscode';
 import checkForPython from './checkForPython';
-import { EXTENSION_ID } from '../constant';
 
-const downloadPackages = (context: vscode.ExtensionContext) => {
-  const downloadCommand = vscode.commands.registerCommand(`${EXTENSION_ID}.installPackage`, () => {
-    const activeEditor = vscode.window.activeTextEditor;
+const downloadPackages = () => {
+  const activeEditor = window.activeTextEditor;
 
-    if (activeEditor) {
-      const fileName = activeEditor.document.fileName;
-      checkForPython(fileName);
-    }
-  });
-
-  context.subscriptions.push(downloadCommand);
+  if (activeEditor) {
+    const fileName = activeEditor.document.fileName;
+    checkForPython(fileName);
+  }
 };
 
 export default downloadPackages;
