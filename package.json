@@ -1,9 +1,9 @@
 {
   "name": "python-madad",
-  "displayName": "python-madad",
-  "description": "",
+  "displayName": "Python Madad",
+  "description": "This extension provides utilities for Python development in Visual Studio Code.",
   "version": "0.0.1",
-  "publisher": "whisperyourwish",
+  "publisher": "WhisperYourWish",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -15,6 +15,7 @@
     "onLanguage:pip-requirements"
   ],
   "main": "./dist/extension.js",
+  "icon": "images/logo.png",
   "contributes": {
     "commands": [
       {
@@ -42,6 +43,10 @@
       ]
     }
   },
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/neodisk17/python-madad"
+	},
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",
