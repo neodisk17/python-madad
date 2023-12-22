@@ -1,32 +1,35 @@
-import * as vscode from 'vscode';
+import { extensions, window } from 'vscode';
+import { PYTHON_EXTENSION_ID } from '../constant';
+import checkForPythonError from '../error-message/checkForPythonError';
 
 const checkForPython = async (fileName: string) => {
-  const pythonExtension = vscode.extensions.getExtension('ms-python.python');
-  if (pythonExtension) {
-    const pythonApi = pythonExtension?.exports;
+  const pythonExtension = extensions.getExtension(PYTHON_EXTENSION_ID);
 
-    const pythonPath = pythonApi.settings.getExecutionDetails().execCommand;
-
-    // Check if the Python API is available
-    if (pythonApi) {
-      if(!pythonExtension.isActive){
-        await pythonExtension.activate();
-      }
-
-      if (pythonPath) {
-
-        const terminal = vscode.window.activeTerminal || vscode.window.createTerminal('Python Terminal');
-        const pythonCommand = `${pythonPath} -m pip install -r ${fileName};`;
-        terminal.sendText(pythonCommand, true);
-        terminal.show();
-
-      } else {
-        vscode.window.showWarningMessage('No Python interpreter selected. Please select a Python interpreter.');
-      }
-    }
-  } else {
-    vscode.window.showWarningMessage('Python extension is not installed. Please install the Python extension for VS Code.');
+  if (!pythonExtension) {
+    window.showWarningMessage(checkForPythonError.pythonNotInstalled);
+    return;
   }
+
+  if (!pythonExtension.activate) {
+    await pythonExtension.activate();
+  }
+
+  const pythonApi = pythonExtension?.exports;
+  const pythonPath = pythonApi.settings.getExecutionDetails().execCommand;
+
+  if (!pythonPath) {
+    window.showWarningMessage(checkForPythonError.noInterpreterSelected);
+    return;
+  }
+
+  const terminal = window.activeTerminal || window.createTerminal();
+
+  const pythonCommand = `${pythonPath} -m pip install -r ${fileName};`;
+
+  terminal.sendText(pythonCommand, true);
+
+  terminal.show();
 };
+
 
 export default checkForPython;
