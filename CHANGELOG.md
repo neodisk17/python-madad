@@ -4,7 +4,7 @@ All notable changes to the "python-madad" extension will be documented in this f
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [1.0.0]
 
 - Initial release
 - Watches for changes in `requirements.txt` and `constraints.txt` files and automatically installs the listed packages.
