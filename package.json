@@ -3,7 +3,7 @@
   "displayName": "Python Madad",
   "description": "Provides utilities for Python development in Visual Studio Code.",
   "version": "1.0.0",
-  "publisher": "WhisperYourWish (Lokesh Kumar)",
+  "publisher": "Lokesh Kumar (WhisperYourWish)",
   "engines": {
     "vscode": "^1.85.0"
   },
