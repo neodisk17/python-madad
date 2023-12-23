@@ -1,9 +1,9 @@
 {
   "name": "python-madad",
   "displayName": "Python Madad",
-  "description": "This extension provides utilities for Python development in Visual Studio Code.",
+  "description": "Provides utilities for Python development in Visual Studio Code.",
   "version": "0.0.1",
-  "publisher": "WhisperYourWish",
+  "publisher": "WhisperYourWish (Lokesh Kumar)",
   "engines": {
     "vscode": "^1.85.0"
   },
