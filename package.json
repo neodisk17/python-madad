@@ -27,8 +27,8 @@
         }
       },
       {
-        "command": "python-helper.install-python-package",
-        "title": "Install Python Package"
+        "command": "python-madad.install-python-package",
+        "title": "Python Madad: Install Python Package"
       }
     ],
     "menus": {
@@ -42,6 +42,10 @@
       "editor/context": [
         {
           "command": "python-madad.installPackage",
+          "when": "resourceLangId == 'pip-requirements'"
+        },
+        {
+          "command": "python-madad.install-python-package",
           "when": "resourceLangId == 'pip-requirements'"
         }
       ]

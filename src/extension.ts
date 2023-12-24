@@ -26,9 +26,11 @@ export function activate(context: ExtensionContext) {
 
   const downloadCommand = commands.registerCommand(`${EXTENSION_ID}.installPackage`, downloadPackages);
 
-  context.subscriptions.push(downloadCommand);
+  const installPythonPackage = commands.registerCommand(`${EXTENSION_ID}.install-python-package`, installPackage);
 
-  installPackage(context);
+
+  context.subscriptions.push(downloadCommand);
+  context.subscriptions.push(installPythonPackage);
 
 }
 
