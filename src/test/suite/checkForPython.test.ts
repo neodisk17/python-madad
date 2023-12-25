@@ -41,6 +41,8 @@ suite('checkForPython Test Suite', () => {
         assert.ok(mockTerminal.sendText.calledOnceWithExactly(sinon.match('python -m pip install -r filename'), sinon.match(1)));
         assert.ok(!mockTerminal.sendText.calledOnceWithExactly(sinon.match('python -m pip install -r filename'), sinon.match(0)));
         assert.ok(mockTerminal.show.called);
+
+        createTerminalStub.restore();
       } else {
         assert.fail("Python Path is not found");
       }
