@@ -103,7 +103,7 @@
     "*.{ts,css,md,json}": [
       "npm run format"
     ],
-    "*.{ts}": [
+    "*.ts": [
       "npm run lint"
     ]
   }
