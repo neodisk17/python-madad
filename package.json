@@ -98,10 +98,5 @@
   "dependencies": {
     "node-fetch": "^3.3.2",
     "node-html-parser": "^6.1.11"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run lint"
-    }
   }
 }
