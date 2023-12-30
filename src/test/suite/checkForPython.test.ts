@@ -20,7 +20,11 @@ suite('checkForPython Test Suite', () => {
     const pythonExtension = vscode.extensions.getExtension(PYTHON_EXTENSION_ID);
     if (!pythonExtension) {
       await checkForPython('filename');
-      assert.ok(showWarningMessageStub.calledOnceWith(checkForPythonError.pythonNotInstalled));
+      assert.ok(
+        showWarningMessageStub.calledOnceWith(
+          checkForPythonError.pythonNotInstalled,
+        ),
+      );
     }
   });
 
@@ -32,22 +36,33 @@ suite('checkForPython Test Suite', () => {
       const pythonApi = pythonExtension?.exports;
       const pythonPath = pythonApi.settings.getExecutionDetails().execCommand;
       if (pythonPath) {
-
         let mockTerminal: any = { sendText: sinon.spy(), show: sinon.spy() };
-        let createTerminalStub = sinon.stub(vscode.window, 'createTerminal').returns(mockTerminal);
+        let createTerminalStub = sinon
+          .stub(vscode.window, 'createTerminal')
+          .returns(mockTerminal);
 
-        await checkForPython('filename')
-        assert.ok(createTerminalStub.called)
-        assert.ok(mockTerminal.sendText.calledOnceWithExactly(sinon.match('python -m pip install -r filename'), sinon.match(1)));
-        assert.ok(!mockTerminal.sendText.calledOnceWithExactly(sinon.match('python -m pip install -r filename'), sinon.match(0)));
+        await checkForPython('filename');
+        assert.ok(createTerminalStub.called);
+        assert.ok(
+          mockTerminal.sendText.calledOnceWithExactly(
+            sinon.match('python -m pip install -r filename'),
+            sinon.match(1),
+          ),
+        );
+        assert.ok(
+          !mockTerminal.sendText.calledOnceWithExactly(
+            sinon.match('python -m pip install -r filename'),
+            sinon.match(0),
+          ),
+        );
         assert.ok(mockTerminal.show.called);
 
         createTerminalStub.restore();
       } else {
-        assert.fail("Python Path is not found");
+        assert.fail('Python Path is not found');
       }
     } else {
-      assert.fail("Python Extension is not found");
+      assert.fail('Python Extension is not found');
     }
   });
 });

@@ -32,5 +32,4 @@ const checkForPython = async (fileName: string) => {
   terminal.show();
 };
 
-
 export default checkForPython;

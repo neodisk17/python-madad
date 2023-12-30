@@ -1,4 +1,3 @@
-
 import { window, workspace } from 'vscode';
 import { parse } from 'node-html-parser';
 import { appendFileSync, existsSync, readFileSync } from 'fs';
@@ -9,7 +8,7 @@ type packageDetails = {
   packageName: string;
   version: string;
   created: string;
-  description?: string
+  description?: string;
 };
 
 const installPackage = () => {
@@ -22,7 +21,6 @@ const installPackage = () => {
       label: suggestion.packageName,
       description: suggestion.description,
       detai: suggestion.version,
-
     }));
     inputBox.busy = false;
   });
@@ -30,7 +28,6 @@ const installPackage = () => {
   inputBox.onDidAccept(() => {
     const selectedSuggestion = inputBox.activeItems[0]?.label;
     if (selectedSuggestion) {
-
       appendPackageInRequirementFile(selectedSuggestion);
 
       inputBox.hide();
@@ -63,15 +60,17 @@ function appendPackageInRequirementFile(packageName: string) {
 
     if (constraintsExists) {
       appendIfNotExists(constraintsPath, 'constraints.txt', packageName);
-
     }
-
   } else {
     window.showErrorMessage('No workspace open.');
   }
 }
 
-const appendIfNotExists = (filePath: string, fileName: string, packageName: string) => {
+const appendIfNotExists = (
+  filePath: string,
+  fileName: string,
+  packageName: string,
+) => {
   if (existsSync(filePath)) {
     const fileContent = readFileSync(filePath, 'utf-8');
     if (!fileContent.includes(packageName)) {
@@ -85,9 +84,10 @@ const appendIfNotExists = (filePath: string, fileName: string, packageName: stri
   }
 };
 
-async function fetchSuggestionsFromAPI(query: string): Promise<packageDetails[]> {
+async function fetchSuggestionsFromAPI(
+  query: string,
+): Promise<packageDetails[]> {
   try {
-
     if (query.length < 1) {
       return [];
     }
@@ -103,16 +103,17 @@ async function fetchSuggestionsFromAPI(query: string): Promise<packageDetails[]>
     const elementList: packageDetails[] = [];
 
     ulElem.forEach((item) => {
-      const element:any = item.childNodes[1].childNodes[1];
+      const element: any = item.childNodes[1].childNodes[1];
       const packageName = element?.childNodes[1]?.childNodes[0]?.innerText;
       const version = element?.childNodes[3]?.childNodes[0]?.innerText;
       const created = element?.childNodes[5]?.childNodes[0]?.innerText;
-      const description = element?.nextElementSibling?.childNodes[0]?.innerText ?? "";
+      const description =
+        element?.nextElementSibling?.childNodes[0]?.innerText ?? '';
       elementList.push({
         packageName,
         version,
         created,
-        description
+        description,
       });
     });
 
