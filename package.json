@@ -25,6 +25,10 @@
           "dark": "./src/assets/icon/download-light-icon.svg",
           "light": "./src/assets/icon/download-dark-icon.svg"
         }
+      },
+      {
+        "command": "python-madad.install-python-package",
+        "title": "Python Madad: Install Python Package"
       }
     ],
     "menus": {
@@ -38,6 +42,10 @@
       "editor/context": [
         {
           "command": "python-madad.installPackage",
+          "when": "resourceLangId == 'pip-requirements'"
+        },
+        {
+          "command": "python-madad.install-python-package",
           "when": "resourceLangId == 'pip-requirements'"
         }
       ]
@@ -85,6 +93,10 @@
     "vscode-test": "^1.6.1",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "node-html-parser": "^6.1.11"
   },
   "husky": {
     "hooks": {
