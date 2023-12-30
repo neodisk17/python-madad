@@ -1,4 +1,4 @@
-name: Run Tests on PR
+name: Tests
 
 # This workflow is triggered on pull requests to the repository
 on:
