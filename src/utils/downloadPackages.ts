@@ -2,13 +2,13 @@ import { window } from 'vscode';
 import checkForPython from './checkForPython';
 import downloadPackagesError from '../error-message/downloadPackagesError';
 
-const downloadPackages = () => {
+const downloadPackages = async () => {
   const activeEditor = window.activeTextEditor;
 
   if (activeEditor) {
     const fileName = activeEditor.document.fileName;
-    checkForPython(fileName);
-  }else{
+    await checkForPython(fileName);
+  } else {
     window.showWarningMessage(downloadPackagesError.noActiveEditor);
   }
 };

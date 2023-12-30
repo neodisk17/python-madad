@@ -3,7 +3,7 @@ import { window, workspace } from 'vscode';
 import { parse } from 'node-html-parser';
 import { appendFileSync, existsSync, readFileSync } from 'fs';
 
-import 'node-fetch';
+import('node-fetch');
 
 type packageDetails = {
   packageName: string;
@@ -117,12 +117,11 @@ async function fetchSuggestionsFromAPI(query: string): Promise<packageDetails[]>
     });
 
     return elementList;
-
-  } catch (error) {
-    console.error('Error fetching suggestions from API:', error.message);
+  } catch (error: unknown) {
+    console.error('Error fetching suggestions from API:', error);
+    console.error(error);
     return [];
   }
-
 }
 
 export default installPackage;
