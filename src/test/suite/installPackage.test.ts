@@ -15,11 +15,13 @@ suite('installPackage Test Suite', () => {
     mockQuickPick = {
       show: sinon.spy(),
       hide: sinon.spy(),
-      onDidChangeValue: (listener: any) => onDidChangeValueEmitter.on('change', listener),
+      onDidChangeValue: (listener: any) =>
+        onDidChangeValueEmitter.on('change', listener),
       onDidAccept: sinon.spy(),
     };
-    createQuickPickStub = sinon.stub(vscode.window, 'createQuickPick').returns(mockQuickPick);
-
+    createQuickPickStub = sinon
+      .stub(vscode.window, 'createQuickPick')
+      .returns(mockQuickPick);
   });
 
   teardown(() => {
@@ -37,10 +39,11 @@ suite('installPackage Test Suite', () => {
     installPackage();
     const inputBox = createQuickPickStub.returnValues[0];
     let capturedInput = '';
-    inputBox.onDidChangeValue((input: any) => { capturedInput = input; });
+    inputBox.onDidChangeValue((input: any) => {
+      capturedInput = input;
+    });
 
     onDidChangeValueEmitter.emit('change', 'test-package');
     assert.strictEqual(capturedInput, 'test-package');
   });
-
 });

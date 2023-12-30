@@ -3,7 +3,7 @@ import * as path from 'path';
 import {
   downloadAndUnzipVSCode,
   resolveCliArgsFromVSCodeExecutablePath,
-  runTests
+  runTests,
 } from '@vscode/test-electron';
 
 async function main() {
@@ -11,17 +11,16 @@ async function main() {
     const extensionDevelopmentPath = path.resolve(__dirname, '../../../');
     const extensionTestsPath = path.resolve(__dirname, './suite/index');
     const vscodeExecutablePath = await downloadAndUnzipVSCode();
-    const [cliPath, ...args] = resolveCliArgsFromVSCodeExecutablePath(vscodeExecutablePath);
+    const [cliPath, ...args] =
+      resolveCliArgsFromVSCodeExecutablePath(vscodeExecutablePath);
 
     cp.spawnSync(
       cliPath,
-      [...args,
-        '--install-extension', 'ms-python.python'
-      ],
+      [...args, '--install-extension', 'ms-python.python'],
       {
         encoding: 'utf-8',
-        stdio: 'inherit'
-      }
+        stdio: 'inherit',
+      },
     );
 
     // Run the extension test
@@ -29,11 +28,11 @@ async function main() {
       // Use the specified `code` executable
       vscodeExecutablePath,
       extensionDevelopmentPath,
-      extensionTestsPath
+      extensionTestsPath,
     });
   } catch (err) {
     console.error('Failed to run tests');
-    console.error("Error is ", err);
+    console.error('Error is ', err);
     process.exit(1);
   }
 }

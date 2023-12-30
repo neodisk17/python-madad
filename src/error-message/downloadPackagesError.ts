@@ -1,3 +1,3 @@
 export default {
-  noActiveEditor: "No editor is active",
+  noActiveEditor: 'No editor is active',
 };
