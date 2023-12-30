@@ -4,7 +4,7 @@ on:
       version:
         type: string
         required: true
-        description: "Version to release"
+        description: 'Version to release'
   pull_request:
     types:
       - opened
@@ -20,8 +20,8 @@ jobs:
       - name: gitflow-workflow-action release workflows
         uses: hoangvvo/gitflow-workflow-action@<TAG>
         with:
-          develop_branch: "develop"
-          main_branch: "master"
+          develop_branch: 'develop'
+          main_branch: 'master'
           merge_back_from_main: true
           version: ${{ inputs.version }}
         env:
