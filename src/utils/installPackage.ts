@@ -9,7 +9,7 @@ type packageDetails = {
   packageName: string;
   version: string;
   created: string;
-  description?: string;
+  description?: string
 };
 
 const installPackage = () => {
