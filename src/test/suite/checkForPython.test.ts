@@ -36,8 +36,8 @@ suite('checkForPython Test Suite', () => {
         let mockTerminal: any = { sendText: sinon.spy(), show: sinon.spy() };
         let createTerminalStub = sinon.stub(vscode.window, 'createTerminal').returns(mockTerminal);
 
-        await checkForPython('filename');
-        assert.ok(createTerminalStub.called);
+        await checkForPython('filename')
+        assert.ok(createTerminalStub.called)
         assert.ok(mockTerminal.sendText.calledOnceWithExactly(sinon.match('python -m pip install -r filename'), sinon.match(1)));
         assert.ok(!mockTerminal.sendText.calledOnceWithExactly(sinon.match('python -m pip install -r filename'), sinon.match(0)));
         assert.ok(mockTerminal.show.called);
