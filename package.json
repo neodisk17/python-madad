@@ -100,12 +100,11 @@
     "node-html-parser": "^6.1.11"
   },
   "lint-staged": {
-    "*.{ts}": [
-      "npm run lint"
-    ],
     "*.{ts,css,md,json}": [
-      "npm run format",
-      "npm run test"
+      "npm run format"
+    ],
+    "*.ts": [
+      "npm run lint"
     ]
   }
 }
