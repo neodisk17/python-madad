@@ -29,6 +29,10 @@
       {
         "command": "python-madad.install-python-package",
         "title": "Python Madad: Install Python Package"
+      },
+      {
+        "command": "python-madad.sync-python-package",
+        "title": "Python Madad: Sync Python Packages"
       }
     ],
     "menus": {
