@@ -2,7 +2,7 @@
   "name": "python-madad",
   "displayName": "Python Madad",
   "description": "Provides utilities for Python development in Visual Studio Code.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "WhisperYourWishLokeshKumar",
   "engines": {
     "vscode": "^1.85.0"
@@ -28,7 +28,11 @@
       },
       {
         "command": "python-madad.install-python-package",
-        "title": "Python Madad: Install Python Package"
+        "title": "Python Madad: Search & Add Python Package"
+      },
+      {
+        "command": "python-madad.sync-python-package",
+        "title": "Python Madad: Sync Python Packages"
       }
     ],
     "menus": {
@@ -100,12 +104,11 @@
     "node-html-parser": "^6.1.11"
   },
   "lint-staged": {
-    "*.{ts}": [
-      "npm run lint"
-    ],
     "*.{ts,css,md,json}": [
-      "npm run format",
-      "npm run test"
+      "npm run format"
+    ],
+    "*.ts": [
+      "npm run lint"
     ]
   }
 }

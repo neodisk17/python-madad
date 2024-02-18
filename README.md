@@ -9,6 +9,8 @@ This extension provides the following features:
 - Watches for changes in `requirements.txt` and `constraints.txt` files and automatically installs the listed packages.
 - Provides a command to automatically trigger package installation from `requirements.txt` and `constraints.txt` files.
 - Provides a download icon in the editor to automatically install the packages
+- Allows the installation of Python packages directly within VS Code.
+- Generate/Updates requirements.txt based on the already installed packages.
 
 ## Screenshots
 
@@ -17,6 +19,10 @@ This extension provides the following features:
 ![Download Icon](https://python-madad.s3.ap-south-1.amazonaws.com/download-icon.png)
 
 ![Context Menu Option](https://python-madad.s3.ap-south-1.amazonaws.com/context-menu-option.png)
+
+![Search & Add Package I](https://python-madad.s3.ap-south-1.amazonaws.com/search+%26+install+python+package+I.png)
+
+![Search & Add Package II](https://python-madad.s3.ap-south-1.amazonaws.com/search+%26+install+python+package+II.png)
 
 ## Requirements
 

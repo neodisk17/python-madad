@@ -10,3 +10,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Watches for changes in `requirements.txt` and `constraints.txt` files and automatically installs the listed packages.
 - Provides a command to automatically trigger package installation from `requirements.txt` and `constraints.txt` files.
 - Provided download icon in the editor to automatically trigger package installation from `requirements.txt` and `constraints.txt` files.
+
+## [1.1.0]
+
+- Added the functionality for Search & Install Python package
+- Generate/Updates requirements.txt based on the already installed packages.
