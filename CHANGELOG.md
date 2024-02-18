@@ -14,3 +14,4 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [1.1.0]
 
 - Added the functionality for Search & Install Python package
+- Generate/Updates requirements.txt based on the already installed packages.

@@ -10,6 +10,7 @@ This extension provides the following features:
 - Provides a command to automatically trigger package installation from `requirements.txt` and `constraints.txt` files.
 - Provides a download icon in the editor to automatically install the packages
 - Allows the installation of Python packages directly within VS Code.
+- Generate/Updates requirements.txt based on the already installed packages.
 
 ## Screenshots
 
